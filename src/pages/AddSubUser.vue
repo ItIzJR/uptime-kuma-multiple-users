@@ -20,7 +20,7 @@
                                 <input
                                     id="name" v-model="password" type="text" class="form-control"
                                     required
-                                >
+                                    >
                             </div>   
                             <!-- Repeat Password -->
                             <div class="mb-3">
@@ -28,7 +28,7 @@
                                 <input
                                     id="name" v-model="repeatPassword" type="text" class="form-control"
                                     required
-                                >
+                                    >
                             </div>                                                            
                             <div class="mt-4 mb-1">
                                 <button
@@ -76,8 +76,8 @@ export default {
                 this.processing = true;
                 this.$root.toastRes(res);
                 if (res.ok) {
-                    this.processing = true;
-                        this.$router.push("/manage-sub-users");
+                this.processing = true;
+                    this.$router.push("/manage-sub-users");
                 }
             });
         },
