@@ -12,7 +12,7 @@
                                 <input
                                     id="name" v-model="username" type="text" class="form-control"
                                     required
-                                >
+                                    >
                             </div>          
                             <!-- Password -->
                             <div class="mb-3">
