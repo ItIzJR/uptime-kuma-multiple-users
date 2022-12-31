@@ -165,7 +165,6 @@ class UptimeKumaServer {
         return result;
     }
 
-
     /**
      * Send sub user list to client
      */
