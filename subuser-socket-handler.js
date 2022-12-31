@@ -72,38 +72,4 @@ module.exports.subUserSocketHandler = (socket) => {
             });
         }
     });
-
-    // Edit a subusers permissions
-
-    socket.on("editSubUserPermissions", async (subuser, callback) => {
-        try {
-            checkLogin(socket);
-
-            let bean = await R.findOne("subuser", " id = ? ", [ subuser.id ]);
-
-            if (bean.user_id !== socket.userID) {
-                throw new Error("Permission denied.");
-            }
-
-            Maintenance.jsonToBean(bean, maintenance);
-
-            await R.store(bean);
-            // await MaintenanceTimeslot.generateTimeslot(bean, null, true);
-
-            await server.sendSubUserList(socket);
-
-            callback({
-                ok: true,
-                msg: "Saved.",
-                maintenanceID: bean.id,
-            });
-
-        } catch (e) {
-            console.error(e);
-            callback({
-                ok: false,
-                msg: e.message,
-            });
-        }
-    });
 };
